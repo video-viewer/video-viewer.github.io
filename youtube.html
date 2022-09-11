@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VideoViewer YouTube</title>
+   <meta charset="UTF-8">
+<style>
+iframe {
+	width:100%;	
+}
+</style>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+      <!-- use the font -->
+      <style>
+        body {
+          font-family: 'Roboto', sans-serif;
+        }
+      </style>
+</head>
+<body>
+
+<div id="youtubeplayer">
+
+</div>
+<div id="videocontent">
+  <span id="title" style="font-size: 25px;"></span><br>
+  <span id="author" style="font-size: 15px;"></span><br>
+  <span id="views" style="font-size: 9px;"></span>
+</div>
+  <p style="float: right; font-size: 30px; cursor: pointer;" onclick="document.location.href = 'https://videoviewer.arjunjakkipally.repl.co/'">📽 VideoViewer</p>
+<script>
+// get params
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+let value = params.video;
+let views = params.view;
+var code = value
+
+// set video
+document.getElementById("youtubeplayer").innerHTML = `
+<iframe src="https://www.youtube-nocookie.com/embed/${code}?autoplay=1" title="VideoViewer" height = "500" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+`
+
+  fetch(`https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${code}&format=json`)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+    document.getElementById("title").innerHTML = data.title
+    document.getElementById("author").innerHTML = `<a href="${data.author_url}">${data.author_name}</a>`
+    document.getElementById("views").innerHTML = views
+  });
+</script>
+<noscript>Enable Javascript to use the Youtube VideoViewer</noscript>
+</body>
+</html>
