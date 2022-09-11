@@ -16,14 +16,14 @@
       </style>
 </head>
 <body>
-    <p style="float: right; font-size: 30px; cursor: pointer;" onclick="document.location.href = 'https://videoviewer.arjunjakkipally.repl.co/'">📽 VideoViewer</p>
+    <p style="float: right; font-size: 30px; cursor: pointer;" onclick="document.location.href = '/'">📽 VideoViewer</p>
   <form action="/search.html" style="font-family: inherit;">
     <input type="search" placeholder="rickroll" name="q" id="searchbox">
       <input type="submit" value="🔍">
   </form>
   <h1>Search</h1>
   <div id="results" style="border-style: solid; text-align:center;">
-    <img src="https://videoviewer.arjunjakkipally.repl.co/img/Ellipsis-1.9s-200px.gif" alt="Loading" id="loadingsign">
+    <img src="/img/Ellipsis-1.9s-200px.gif" alt="Loading" id="loadingsign">
   </div>
   <br><br><br>
   <p style="font-size: 6px;">Loading sign from <a href="https://loading.io/">loading.io</a></p>
@@ -47,7 +47,7 @@ document.getElementById("searchbox").value = search
   padding-bottom: 3px;
   padding-left: 3px;`
         div.innerHTML += `
-        <div style="cursor: pointer;" onclick="document.location.href = 'https://videoviewer.arjunjakkipally.repl.co/youtube.html?video=${element.id}&view=${element.views}';">
+        <div style="cursor: pointer;" onclick="document.location.href = '/youtube.html?video=${element.id}&view=${element.views}';">
         <div style="display:inline-block;vertical-align:top;">
         <img src="${element.thumbnails[0]}" width="300">
         </div>
