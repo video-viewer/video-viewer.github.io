@@ -6,6 +6,3 @@ This product is aiming to be a easy way to access many videos. This product is p
 
 ## Current platforms supported:
 * YouTube
-
-## Status
-Browser checks are being held. Please wait.
